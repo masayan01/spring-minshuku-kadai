@@ -60,7 +60,7 @@ public class AdminHouseController {
     @GetMapping("/register")
     public String register(Model model){
         model.addAttribute("houseRegisterForm", new HouseRegisterForm());
-        return "/admin/houses/register";
+        return "admin/houses/register";
 }
 
 @PostMapping("/create")
@@ -72,7 +72,7 @@ public String create(@ModelAttribute @Validated HouseRegisterForm houseRegisterF
     houseService.create(houseRegisterForm);
     redirectAttributes.addFlashAttribute("successMessage","民宿を登録しました。");
 
-    return "admin/houses/register";
+    return "redirect:/admin/houses/register";
 }
 
 @GetMapping("/{id}/edit")

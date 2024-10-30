@@ -53,7 +53,7 @@ public String index(@RequestParam(name = "keyword", required = false) String key
                             }
                         }else{
                             if(order != null && order.equals("priceAsc")){
-                                housePage = houseRepository.findAllByOrderByCreatedAtDesc(pageable);
+                                housePage = houseRepository.findAllByOrderByPriceAsc(pageable);
                             }else{
                                 housePage = houseRepository.findAllByOrderByCreatedAtDesc(pageable);
                             }
@@ -75,6 +75,6 @@ public String index(@RequestParam(name = "keyword", required = false) String key
         model.addAttribute("house", house);
         model.addAttribute("reservationInputForm", new ReservationInputForm());
 
-        return "/houses/show";
+        return "houses/show";
     }
 }
